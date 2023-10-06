@@ -50,3 +50,5 @@ nvm install 16.0.0
 nvm use 16.0.0
 
 ```
+
+una vez se logre ejecutar npm run dev, se puede presional el shortcut **o** para abrir la aplicación en navegador
