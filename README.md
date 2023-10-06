@@ -14,4 +14,24 @@ correr el siguiente comando en PowerShell
 ```
 wsl --install
 ```
-posteriormente, abrir ubuntu para trabajar en la consola
+posteriormente, abrir ubuntu para trabajar en la consola. Allí, ejecutar los siguientes coomandos:
+para clonar el repositorio:
+```
+git clone https://github.com/tealtourmaline/Farmalum_react.git
+```
+luego de clonar el repositorio
+```
+cd Farmalum_react/
+```
+```
+code .
+```
+```
+sudo apt-get update
+```
+```
+sudo apt install npm
+```
+```
+npm install
+```
