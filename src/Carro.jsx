@@ -191,6 +191,28 @@ export const Carro = () => {
                 </div>
             </div>
             </div>
+
+            <div className="my-4 w-50">
+                <h3>Carro de compra</h3>
+                <table className="table table-hover table-stripped">
+                    <tbody>
+                        <tr>
+                            <td>nombre</td>
+                            <td>precio</td>
+                            <td>cantidad</td>
+                            <td>total</td>
+                            <td>eliminar</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colSpan="3" className="text-end fw-bold">Total</td>
+                            <td colSpan="2">12345</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
         </section>
         <footer className="py-5 bg-dark">
             <div className="container"><p className="m-0 text-center text-white">Copyright &copy; Farmalum 2023</p></div>
