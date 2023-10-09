@@ -1,4 +1,4 @@
-export const prodyctos = [
+export const products = [
     {
         id: 1,
         photo: 'https://beta1.cruzverde.com.co/on/demandware.static/-/Sites-masterCatalog_Colombia/default/dwa526cfe4/images/large/40132_1_TOALLA_BUENAS_NOCHES_TIPO_TELA__NOSOTRAS_PAQ_X_10.jpg.jpg',
