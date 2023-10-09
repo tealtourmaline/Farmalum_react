@@ -17,8 +17,9 @@ export const CatalogView = () =>{
             <div className="row">
                 {products.map(prod => (
 
-                    <div className="col-4 my-2" key={prod.id}>
+                    <div className="col-3 my-2" key={prod.id}>
                             <ProductCardView 
+                                id={prod.id}
                                 photo={prod.photo} 
                                 name={prod.name} 
                                 price={prod.price}

@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { Carro } from './Carro'
+import { CartApp } from './CartApp'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Carro />
+    <CartApp />
   </React.StrictMode>,
 )
