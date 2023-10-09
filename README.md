@@ -33,6 +33,8 @@ sudo apt install npm
 
 npm install
 
+npm install vite --save-dev
+
 npm run dev
 ```
 en caso de error en esta parte, es necesario ejecutar los siguientes comandos para actualizar Node.js, y luego volver a correr npm install y npm run dev
