@@ -1,7 +1,10 @@
-export const ProductCardView = ({id, photo, name, price}) => {
+export const ProductCardView = ({ handler, id, photo, name, price }) => {
+
   const onAddProduct = (product) => {
-    console.log(product)
+    console.log(product);
+    handler(product);
   }
+
   return (
     <>
       <div className="card">
@@ -10,7 +13,7 @@ export const ProductCardView = ({id, photo, name, price}) => {
               <h5 className="card-title">{name}</h5>
               <p className="card-text">$ {price}</p>
               <button className="btn btn-primary"
-              onClick={() => onAddProduct({id,photo,name,price})}>Agregar</button>
+                onClick={() => onAddProduct({ id,photo,name,price })}>Agregar</button>
           </div>
       </div>
     </>
