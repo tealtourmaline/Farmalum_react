@@ -54,3 +54,29 @@ nvm use 16.0.0
 ```
 
 una vez se logre ejecutar npm run dev, se puede presional el shortcut **o** para abrir la aplicación en navegador
+
+# Configuración Base de datos: Postgres
+
+Instalar docker
+- Linux: 
+    sudo apt install docker-ce
+
+- [Windows (docker desktop)](https://www.docker.com/products/docker-desktop/)
+
+Descargar la imagen de postgres
+ - docker pull postgres:latest
+
+ Inicializar el contenedor
+ - docker run --name postgres_db -e POSTGRES_PASSWORD=unaClav3 -d -p 5433:5432 postgres:latest
+
+Entramos a ejecutar comandos con sql
+- psql -U postgres
+
+Creamos la base de datos
+- create database db_cart_springboot;
+
+Conectarse a la base de datos 
+- \c db_cart_springboot;
+
+Seguimos los pasos en [Script de implementacion en postgres](Script_implementacion_BD.sql)
+
