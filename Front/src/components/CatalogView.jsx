@@ -7,16 +7,24 @@ export const CatalogView = ({ handler }) => {
 
     const [products, setProducts] = useState([]);
 
+    const findAll = async () =>{
+        try {
+            const prods = await getProducts();
+            setProducts(prods);
+          } catch (error) {
+            console.error("Error al obtener productos", error);
+          }
+    };
+
     useEffect(
         () => {
-            setProducts(getProducts());
+            findAll();  
         }, []);
 
     return (
         <>
             <div className="row">
                 {products.map(prod => (
-
                     <div className="col-3 my-2" key={prod.id}>
                             <ProductCardView
                                 handler={ handler }

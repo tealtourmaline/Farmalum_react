@@ -44,14 +44,21 @@ create table products (
     )
 
 -- Inserción datos de ejemplo
-INSERT INTO products (name, photo, price) VALUES ('Teclado Mecanico RGB', 'Teclado Mecánico con luces RGB switches cherry red', 1000);
+--INSERT INTO products(name, photo, price) VALUES ('','',);
 
-INSERT INTO products (name, photo, price) VALUES ('Samsung Smart TV 55', 'Color optimizado para una imagen vibrante y realista gracias al potente Crystal Processor 4K', 3000);
+INSERT INTO products (name, photo, price) VALUES ('Toallas Buenas Noches Tipo Tela Algodón Paquete X 10', 'https://beta1.cruzverde.com.co/on/demandware.static/-/Sites-masterCatalog_Colombia/default/dwa526cfe4/images/large/40132_1_TOALLA_BUENAS_NOCHES_TIPO_TELA__NOSOTRAS_PAQ_X_10.jpg.jpg', 11700);
 
-INSERT INTO products (name, photo, price) VALUES ('Audífono Bluetooth Sony', 'Audífono Bluetooth para smartphone', 770);
+INSERT INTO products (name, photo, price) VALUES ('Gel Facial Hydro-Boost Water Neutrogena Frasco X 50 Gr', 'https://beta1.cruzverde.com.co/on/demandware.static/-/Sites-masterCatalog_Colombia/default/dw7949c6c2/images/large/142222_1_GEL_FACIAL_HYDRO_BOOST_WATER_NEUTROGENA_TUB_X_50GR.jpg', 60278);
 
-INSERT INTO products (name, photo, price) VALUES ('Memoria Corsair 16GB DDR5', 'Memoria RAM optimizada para Juegos', 3700);
+INSERT INTO products (name, photo, price) VALUES ('Crema Dental Colgate Total 12 Clean Mint Tubo X 150 mL', 'https://beta1.cruzverde.com.co/on/demandware.static/-/Sites-masterCatalog_Colombia/default/dw029c53b6/images/large/119794_1_COLGATE_TOTAL_12_CLEAN_MINT_CREM_TUB_X_150ML.jpg', 17400);
 
-INSERT INTO products (name, photo, price) VALUES ('Asus Nvidia RTX 4080TI', 'Tarjeta Gráfica para juegos en 4k', 5000);
+INSERT INTO products (name, photo, price) VALUES ('Repuesto Cuchilla Depilacion Gillette Sobre X 2 Venus Breeze', 'https://beta1.cruzverde.com.co/on/demandware.static/-/Sites-masterCatalog_Colombia/default/dwc5744b38/images/large/154648_1_REPUESTO_CUCHILLA_DEPILACION_GILLETTE_SOB_X_2_VENUS_BREEZE.jpg', 30353);
 
-INSERT INTO products (name, photo, price) VALUES ('CPU Intel Core i7-12700K', 'Alder Lake de 12 cores optimizados para multitareas', 5000);
+INSERT INTO products (name, photo, price) VALUES ('Shampoo Herbal Essences Control Caída Bourbon Manuka Honey Frasco X 400Ml', 'https://beta1.cruzverde.com.co/on/demandware.static/-/Sites-masterCatalog_Colombia/default/dw2dd2757b/images/large/164987_1_SHAMPOO_HERBAL_ESSENCES_FCO_X_400ML_BOURBON_MANUKA_HONEY.jpg', 30543);
+
+INSERT INTO products (name, photo, price) VALUES ('Bio Active Hyaluron Skinacademy Serum Concentrado 35+ Frasco X 30Ml', 'https://beta1.cruzverde.com.co/on/demandware.static/-/Sites-masterCatalog_Colombia/default/dwc71cbfa1/images/large/297979_1_BIO_ACTIVE_HYALURON_SKINACADEMY_SERUM_CONCENTRADO_35_FCO_X_30ML.jpg', 36700);
+
+INSERT INTO products(name, photo, price) VALUES ('Redugel Arawak Pot X 400Gr Eliminar Grasa Localizada','https://beta1.cruzverde.com.co/on/demandware.static/-/Sites-masterCatalog_Colombia/default/dwc93b75f5/images/large/166299_1_REDUGEL_ARAWAK_POT_X_400GR_ELIMINAR_GRASA_LOCALIZADA.jpg',30320);
+
+INSERT INTO products(name, photo, price) VALUES ('Gel Limpiador Espumoso Para Piel Normal A Grasa Frasco X 473mL','https://beta1.cruzverde.com.co/on/demandware.static/-/Sites-masterCatalog_Colombia/default/dwe85533a7/images/large/291934_1_CERAVE_FOAMING_CLEANSER_FCO_X_473ML_PARA_PIEL_NORMAL_A_GRASA.jpg',86760);
+

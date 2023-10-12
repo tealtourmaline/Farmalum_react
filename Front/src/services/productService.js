@@ -1,7 +1,16 @@
-import {products} from "../Data/products"
+import axios from 'axios';
 
-export const getProducts = () => {
-    return products;
+export const getProducts = async() => {
+    try {
+        const response = await axios.get('http://localhost:8080/products');
+        return response.data; // Utiliza response.data para obtener los datos
+      } catch (error) {
+        console.error(error);
+        throw error; // Re-lanza el error para manejarlo en el componente
+      }
+    //const response = await fetch('http://localhost:8080/products');
+    //const products = response.json();
+    //return products;
 }
 
 export const calculateTotal = (items) => {
