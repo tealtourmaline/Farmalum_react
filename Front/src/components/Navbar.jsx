@@ -8,6 +8,7 @@ function RenderNavbar() {
 
   const boldTextStyle = {
     fontWeight: 600, // Hace que el texto sea negrita
+    color: '#2F2F2F'
   };
 
   return (
