@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { CartView } from "./components/CartView"
 import { CatalogView } from "./components/CatalogView"
-import RenderNavbar from "./services/Navbar"
-import Carousel from "./services/Carousel"
+import RenderNavbar from "./components/Navbar"
+import MyCarousel from "./components/Carousel";
 
 
 const cartData = sessionStorage.getItem('cart');
@@ -45,9 +45,9 @@ export const CartApp = () => {
     return (
         <>
             <RenderNavbar />
-            <Carousel />
+            <MyCarousel/>
             <div className="container my-5">
-                <h3>Cart App</h3>
+                <h3>Productos destacados</h3>
                 {/* carga la vista del catálogo  */}
                 <CatalogView handler={ handlerAddProductCart } />
 

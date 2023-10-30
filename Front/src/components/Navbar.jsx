@@ -1,8 +1,24 @@
+import "../styles.css";
+
 function RenderNavbar() {
+
+  const textStyle = {
+    fontFamily: 'Roboto, sans-serif', // Establece la fuente como "Roboto" y luego fuentes alternativas
+  };
+
+  const boldTextStyle = {
+    fontWeight: 600, // Hace que el texto sea negrita
+  };
+
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg custom-navbar">
         <div className="container-fluid">
-        <a className="navbar-brand" href="#"><img src="https://i.imgur.com/l3ZMo8k.png" alt="Farmalum" width="" height="70"/></a>
+        <a className="navbar-brand" href="#">
+          <img src="https://i.imgur.com/2bGB84z.png" alt="Farmalum" width="" height="70" class="d-inline-block align-text-center"/> 
+          <span style={boldTextStyle}>       Farmalum</span>
+        </a>
+
+        {/* a cambiar */}
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
