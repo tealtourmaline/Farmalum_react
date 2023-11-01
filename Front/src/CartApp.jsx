@@ -65,7 +65,7 @@ export const CartApp = () => {
                     <CartView items={cartItems} handlerDelete={handlerDeleteProductCart}/>
                 </div>)}
                 <h3>Registro</h3>
-                <UserForm/>
+                {/* <UserForm/> */}
             </div>
             
         </>
