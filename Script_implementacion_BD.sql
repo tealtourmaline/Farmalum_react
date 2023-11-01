@@ -43,6 +43,15 @@ create table products (
         primary key (id)
     )
 
+-- Crear tabla usuarios
+create table users (
+        id bigint generated always as identity not null,
+        email varchar(255),
+        password varchar(255),
+        username varchar(255),
+        primary key (id)
+    )
+
 -- Inserción datos de ejemplo
 --INSERT INTO products(name, photo, price) VALUES ('','',);
 
