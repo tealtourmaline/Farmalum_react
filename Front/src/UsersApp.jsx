@@ -22,7 +22,7 @@ export const UsersApp = () => {
         initialUserForm,
         handlerAddUser,
         handlerRemoveUser,
-        handlerUserSelectedForm
+        handlerUserSelectedForm,
     } = useUsers();
 
     return(

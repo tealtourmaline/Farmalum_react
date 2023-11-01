@@ -1,5 +1,6 @@
 import { useReducer, useState } from "react";
 import { usersReducer } from "../reducers/usersReducer";
+import { save, update, remove } from "../services/userService";
 
 const initialUsers = [];
 
@@ -15,19 +16,31 @@ export const useUsers = () => {
     const [users, dispatch] = useReducer(usersReducer, initialUsers);
     const [userSelected, setUserSelected] = useState(initialUserForm);
 
-    const handlerAddUser = (user) => {
-        let type;
-        if(user.id === 0){
-            type = 'addUser';
-        } else{
-            type = 'updateUser';
-        }
+    const getUsers = async () =>{
+        const result = await findAll();
         dispatch({
-            type,
-            payload: user,
+            type: 'loadingUsers',
+            payload: result.data
+        });
+    }
+
+    const handlerAddUser = async (user) => {
+
+        let response;
+
+        if(user.id === 0){
+            response = await save(user);
+        } else{
+            response = await update(user);
+        }
+
+        dispatch({
+            type: (user.id===0) ? 'addUser' : 'updateUser',
+            payload: response.data,
         })
     }
     const handlerRemoveUser = (id) => {
+        remove(id);
         dispatch({
             type: 'removeUser',
             payload: id,
@@ -43,6 +56,7 @@ export const useUsers = () => {
         initialUserForm,
         handlerAddUser,
         handlerRemoveUser,
-        handlerUserSelectedForm
+        handlerUserSelectedForm,
+        getUsers,
     }
 }
