@@ -3,6 +3,7 @@ import { CartView } from "./components/CartView"
 import { CatalogView } from "./components/CatalogView"
 import RenderNavbar from "./components/Navbar"
 import MyCarousel from "./components/Carousel";
+import { UserForm } from "./components/UserForm";
 
 
 const cartData = sessionStorage.getItem('cart');
@@ -63,9 +64,10 @@ export const CartApp = () => {
                     {/* carga la vista del carrito de compras */}
                     <CartView items={cartItems} handlerDelete={handlerDeleteProductCart}/>
                 </div>)}
-
-
+                <h3>Registro</h3>
+                <UserForm/>
             </div>
+            
         </>
     )
 }
