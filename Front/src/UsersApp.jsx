@@ -3,19 +3,10 @@ import { UserForm } from "./components/UserForm";
 import { UsersList } from "./components/UsersList";
 import { usersReducer } from "./reducers/usersReducer";
 import { findAll } from "./services/userService";
+import { useUsers } from "./hooks/useUsers";
 
-const initialUsers = [];
 
-const initialUserForm = {
-    id: 0,
-    username: '',
-    password: '',
-    email: '',
-
-}
 export const UsersApp = () => {
-    const [users, dispatch] = useReducer(usersReducer, initialUsers);
-    const [userSelected, setUserSelected] = useState(initialUserForm);
 
     const getUsers = async () =>{
         const result = await findAll();
@@ -25,27 +16,15 @@ export const UsersApp = () => {
         });
     }
 
-    const handlerAddUser = (user) => {
-        let type;
-        if(user.id === 0){
-            type = 'addUser';
-        } else{
-            type = 'updateUser';
-        }
-        dispatch({
-            type,
-            payload: user,
-        })
-    }
-    const handlerRemoveUser = (id) => {
-        dispatch({
-            type: 'removeUser',
-            payload: id,
-        })
-    }
-    const handlerUserSelectedForm = (user) => {
-        setUserSelected({ ...user });
-    }
+    const {
+        users,
+        userSelected,
+        initialUserForm,
+        handlerAddUser,
+        handlerRemoveUser,
+        handlerUserSelectedForm
+    } = useUsers();
+
     return(
         <div className="container my-4">
             <h5>UsersApp</h5>
