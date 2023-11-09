@@ -26,7 +26,7 @@ function RenderNavbar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">Inicio</a>
+              <a className="nav-link active" aria-current="page" href="/">Inicio</a>
             </li>
           </ul>
           <form className="d-flex mx-auto" role="search">
@@ -36,7 +36,7 @@ function RenderNavbar() {
 
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">Inicio Sesión</a>
+              <a className="nav-link active" aria-current="page" href="/login">Inicio Sesión</a>
             </li>
           </ul>
         </div>

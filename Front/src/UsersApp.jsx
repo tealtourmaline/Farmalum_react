@@ -4,7 +4,7 @@ import { UsersList } from "./components/UsersList";
 import { usersReducer } from "./reducers/usersReducer";
 import { findAll } from "./services/userService";
 import { useUsers } from "./hooks/useUsers";
-
+import RenderNavbar from "./components/Navbar"
 
 export const UsersApp = () => {
 
@@ -26,8 +26,10 @@ export const UsersApp = () => {
     } = useUsers();
 
     return(
+        <> 
+        <RenderNavbar />
         <div className="container my-4">
-            <h5>UsersApp</h5>
+            <h5>Regístrate</h5>
             <div className="row">
                 <div className="col">
                     <UserForm 
@@ -46,5 +48,6 @@ export const UsersApp = () => {
                 </div>
             </div>
         </div>
+    </>
     )
 }

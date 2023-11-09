@@ -64,8 +64,6 @@ export const CartApp = () => {
                     {/* carga la vista del carrito de compras */}
                     <CartView items={cartItems} handlerDelete={handlerDeleteProductCart}/>
                 </div>)}
-                <h3>Registro</h3>
-                {/* <UserForm/> */}
             </div>
             
         </>
