@@ -14,7 +14,7 @@ function RenderNavbar() {
   return (
     <nav className="navbar navbar-expand-lg custom-navbar">
         <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="/">
           <img src="https://i.imgur.com/2bGB84z.png" alt="Farmalum" width="" height="70" class="d-inline-block align-text-center"/> 
           <span style={boldTextStyle}>       Farmalum</span>
         </a>
@@ -40,6 +40,11 @@ function RenderNavbar() {
             </li>
           </ul>
         </div>
+        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="/carrito">Carrito de compras</a>
+            </li>
+          </ul>
       </div>
     </nav>
   );

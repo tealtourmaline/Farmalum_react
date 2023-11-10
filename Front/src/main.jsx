@@ -7,14 +7,15 @@ import { UsersApp } from './UsersApp';
 import { LogInApp } from './LoginApp';
 
 
+import { CatalogApp } from './CatalogApp';
+
 const App = () => (
   <Router>
     <Routes>
-      <Route path="/cart" element={<CartApp/>} />
+      <Route path="/carrito" element={<CartApp/>} />
       <Route path="/registro" element={<UsersApp/>} />
       <Route path="/login" element={<LogInApp/>} />
-      <Route path="/" element={<CartApp/>} />
-      <Route exact element={<CartApp/>}  />
+      <Route path="/" element={<CatalogApp/>} />
     </Routes>
   </Router>
 );
