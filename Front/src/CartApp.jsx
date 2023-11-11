@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CartView } from "./components/CartView";
 import RenderNavbar from "./components/Navbar";
+import RenderCategoriesBar from "./components/CategoriesBar"
 import { CatalogApp } from "./CatalogApp"; 
 
 export const CartApp = () => {
@@ -39,6 +40,7 @@ export const CartApp = () => {
     return (
         <>
             <RenderNavbar />
+            <RenderCategoriesBar />
             <div className="container my-5">
                 <CartView items={cartItems} handlerDelete={handlerDeleteProductCart}/>
             </div>

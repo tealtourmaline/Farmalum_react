@@ -12,6 +12,16 @@ export const getProducts = async() => {
     //const products = response.json();
     //return products;
 }
+export const getLatestProducts = async () => {
+  try {
+    const response = await axios.get('http://localhost:8080/products/latest');
+    return response.data; // Utiliza response.data para obtener los datos
+  } catch (error) {
+    console.error("Error al obtener los últimos productos", error);
+    throw error; // Re-lanza el error para manejarlo en el componente
+  }
+};
+
 
 export const calculateTotal = (items) => {
     return items.reduce(

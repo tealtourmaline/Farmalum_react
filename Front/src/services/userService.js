@@ -44,3 +44,27 @@ export const remove = async (id) =>{
         console.error(error);
     }
 }
+//conseguir los detalles de un usuario en específico
+export const getUserDetails = async (id) => {
+    try {
+      const response = await axios.get(`${BASE_URL}/${id}`, {
+      });
+      return response.data;
+    } catch (error) {
+      console.error('Error al obtener detalles del usuario', error);
+      throw error; 
+    }
+  };
+  //actualizar la información de un usuario en especifico
+  export const updateUserDetails = async (id, username, email, password) => {
+    try {
+      const response = await axios.put(`${BASE_URL}/${id}/details`, {
+        username, email, password,
+      });
+      return response.data;
+    } catch (error) {
+      console.error('Error al actualizar detalles del usuario', error);
+      throw error; 
+    }
+}
+  

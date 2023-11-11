@@ -36,15 +36,14 @@ function RenderNavbar() {
 
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/login">Inicio Sesión</a>
+              <a className="nav-link active" aria-current="page" href="/login">Iniciar sesión/Registrarse</a>
             </li>
           </ul>
         </div>
-        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/carrito">Carrito de compras</a>
-            </li>
-          </ul>
+        <a className="navbar-brand" href="/carrito">
+          <img src="https://i.imgur.com/vzcjjBL.png" alt="Carrito" width="" height="70" class="d-inline-block align-text-center"/> 
+        
+        </a>
       </div>
     </nav>
   );
