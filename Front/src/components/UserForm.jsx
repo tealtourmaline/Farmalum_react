@@ -4,7 +4,6 @@ export const UserForm = ({ userSelected, handlerAddUser, initialUserForm }) => {
 
     const [userForm, setUserForm] = useState(initialUserForm);
     const { id, username, password, email } = userForm;
-
     useEffect(() => {
         setUserForm({
             ...userSelected,

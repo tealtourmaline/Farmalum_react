@@ -1,24 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { getUserDetails, updateUserDetails } from '../services/UserService';
+import { getUserDetails, updateUserDetails } from './services/UserService'; // Ajusta la ruta según la ubicación de tu UserService
+import { useAuth } from './contexts/AuthContext';
 
 const ProfileView = () => {
   const [userDetails, setUserDetails] = useState({});
-  const [newDetails, setNewDetails] = useState({});
+  const [newDetails, setNewDetails] = useState({
+    newUsername: '',
+    newEmail: '',
+    newAddress: '',
+    newPassword: '',
+    confirmCurrentPassword: '',
+  });
+  const { userId } = useAuth();
   const history = useHistory();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await getUserDetails();
-        setUserDetails(response.data);
+        const response = await getUserDetails(userId);
+        setUserDetails(response);
       } catch (error) {
         console.error('Error al obtener detalles del usuario', error);
       }
     };
 
-    fetchData();
-  }, []);
+    if (userId) {
+      fetchData();
+    }
+  }, [userId]);
 
   const handleInputChange = (e) => {
     setNewDetails({
@@ -28,18 +38,19 @@ const ProfileView = () => {
   };
 
   const handleUpdateDetails = async () => {
-      if (!newDetails.confirmCurrentPassword) {
+    if (!newDetails.confirmCurrentPassword) {
       alert('Por favor, ingresa tu contraseña actual para confirmar los cambios.');
       return;
     }
 
     try {
-      await updateUserDetails(newDetails); // Implementa updateUserDetails en UserService.jsx
+      // Asegúrate de pasar el ID del usuario a updateUserDetails
+      await updateUserDetails(userId, newDetails.newUsername, newDetails.newEmail, newDetails.newPassword);
       alert('Su información ha sido actualizada');
 
     } catch (error) {
       console.error('Error al actualizar detalles del usuario', error);
-        alert('Error al actualizar los detalles');
+      alert('Error al actualizar los detalles');
     }
   };
 

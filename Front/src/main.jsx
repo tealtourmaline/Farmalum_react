@@ -5,9 +5,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { CartApp } from './CartApp';
 import { UsersApp } from './UsersApp';
 import { LogInApp } from './LoginApp';
-
-
 import { CatalogApp } from './CatalogApp';
+import { CartProvider } from './contexts/CartContext';
+import { AuthProvider } from './contexts/AuthContext';
+
 
 const App = () => (
   <Router>
@@ -23,6 +24,10 @@ const App = () => (
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <AuthProvider>
+    <CartProvider>
+      <App />
+    </CartProvider>
+    </AuthProvider>
   </React.StrictMode>
-);
+)

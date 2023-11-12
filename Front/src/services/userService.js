@@ -68,3 +68,12 @@ export const getUserDetails = async (id) => {
     }
 }
   
+export const login = async (loginData) => {
+    try {
+      const response = await axios.post(`${BASE_URL}/login`, loginData);
+      return response.data;
+    } catch (error) {
+      console.error('Error al iniciar sesión', error);
+      throw error;
+    }
+  };
