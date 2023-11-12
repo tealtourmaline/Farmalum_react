@@ -8,6 +8,8 @@ import { LogInApp } from './LoginApp';
 import { CatalogApp } from './CatalogApp';
 import { CartProvider } from './contexts/CartContext';
 import { AuthProvider } from './contexts/AuthContext';
+import { ProfileApp } from './ProfileApp';
+
 
 
 const App = () => (
@@ -18,6 +20,8 @@ const App = () => (
       <Route path="/login" element={<LogInApp/>} />
       <Route path="/" element={<CatalogApp/>} />
       <Route path="/all" element={<CatalogApp/>} />
+      <Route path="/profile" element={<ProfileApp/>} />
+
     </Routes>
   </Router>
 );

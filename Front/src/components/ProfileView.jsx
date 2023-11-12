@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import { getUserDetails, updateUserDetails } from './services/UserService'; // Ajusta la ruta según la ubicación de tu UserService
-import { useAuth } from './contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import { getUserDetails, updateUserDetails } from '/home/valespinal/Farmalum_react/Front/src/services/userService.js'; // Ajusta la ruta según la ubicación de tu UserService
+import { useAuth } from '/home/valespinal/Farmalum_react/Front/src/contexts/AuthContext.jsx';
 
 const ProfileView = () => {
   const [userDetails, setUserDetails] = useState({});
@@ -13,7 +13,7 @@ const ProfileView = () => {
     confirmCurrentPassword: '',
   });
   const { userId } = useAuth();
-  const history = useHistory();
+  const history = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -62,20 +62,58 @@ const ProfileView = () => {
         <p>Correo Electrónico: {userDetails.email}</p>
       </div>
       <div>
-        <h3>Modificar Detalles</h3>
-        <label>Nuevo usuario:</label>
-        <input type="text" name="newUsername" onChange={handleInputChange} />
-        <label>Nuevo correo Electrónico:</label>
-        <input type="text" name="newEmail" onChange={handleInputChange} />
-        <label>Nueva dirección:</label>
-        <input type="text" name="newAddress" onChange={handleInputChange} />
-        <label>Nueva Contraseña:</label>
-        <input type="password" name="newPassword" onChange={handleInputChange} />
-        <label>Confirmar Contraseña Actual:</label>
-        <input type="password" name="confirmCurrentPassword" onChange={handleInputChange} />
-        <button onClick={handleUpdateDetails}>Actualizar información</button>
+      <div>
+    <h3>Modificar Detalles</h3>
+
+    <div style={{ marginBottom: '20px' }}>
+      <div>
+        <label style={{ fontWeight: 'bold' }}>Nuevo usuario:</label>
+      </div>
+      <div>
+        <input type="text" name="newUsername" onChange={handleInputChange} style={{ marginTop: '8px' }} />
       </div>
     </div>
+
+    <div style={{ marginBottom: '20px' }}>
+      <div>
+        <label style={{ fontWeight: 'bold' }}>Nuevo correo electrónico:</label>
+      </div>
+    <div>
+      <input type="text" name="newEmail" onChange={handleInputChange} style={{ marginTop: '8px' }} />
+    </div>
+    </div>
+    <div style={{ marginBottom: '20px' }}>
+      <div>
+        <label style={{ fontWeight: 'bold' }}>Nueva dirección:</label>
+      </div>
+    <div>
+      <input type="text" name="newAddress" onChange={handleInputChange} style={{ marginTop: '8px' }} />
+    </div>
+    </div>
+
+    <div style={{ marginBottom: '20px' }}>
+     <div>
+      <label style={{ fontWeight: 'bold' }}>Nueva contraseña:</label>
+      </div>
+    <div>
+      <input type="password" name="newPassword" onChange={handleInputChange} style={{ marginTop: '8px' }} />
+      </div>
+    </div>
+
+    <div style={{ marginBottom: '20px' }}>
+      <div>
+      <label style={{ fontWeight: 'bold' }}>Confirmar contraseña actual:</label>
+    </div>
+    <div>
+      <input type="password" name="confirmCurrentPassword" onChange={handleInputChange} style={{ marginTop: '8px' }} />
+    </div>
+    </div>
+
+    <button onClick={handleUpdateDetails}>Actualizar información</button>
+    </div>
+
+    </div>
+  </div>
   );
 };
 
