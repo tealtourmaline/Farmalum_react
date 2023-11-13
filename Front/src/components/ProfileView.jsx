@@ -56,7 +56,6 @@ const ProfileView = () => {
 
   return (
     <div>
-      <h2>Perfil de Usuario</h2>
       <div>
         <p>Usuario: {userDetails.username}</p>
         <p>Correo Electrónico: {userDetails.email}</p>

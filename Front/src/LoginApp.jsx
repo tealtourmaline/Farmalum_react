@@ -4,11 +4,16 @@ import RenderNavbar from "./components/Navbar";
 import { useAuth } from "./contexts/AuthContext";
 import { UserForm } from "./components/UserForm";
 import { AuthProvider } from "./contexts/AuthContext";
+import { useUserContext } from "./contexts/UserContext"; // Ajusta la ruta según tu estructura
 
 export const LogInApp = () => {
+  
+  const { dispatch, handlerAddUser } = useUserContext(); 
+  
   const { login } = useAuth(); 
   const handleLogin = async (loginData) => {
-     
+  const { dispatch, handlerAddUser } = useUserContext(); // Usa el contexto global de usuarios
+
     try {
       const result = await login(loginData);
       console.log("Inicio de sesión exitoso: ", result);
@@ -16,6 +21,10 @@ export const LogInApp = () => {
       console.error("Error al iniciar sesión: ", error.message);
       alert("Ha ocurrido un error al iniciar sesión: ", error.message);
     }
+  };
+    
+  const handleRegister = (user) => {
+    handlerAddUser(user);
   };
 
   return (
@@ -46,6 +55,7 @@ export const LogInApp = () => {
                 email: "",
               }}
               userSelected={null}
+              handlerAddUser={handleRegister}
             />
           </div>
         </div>

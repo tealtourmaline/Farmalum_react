@@ -5,5 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import com.farmalum.backend.cartapp.backendcartapp.models.entities.User;
 
 public interface UserRepository extends CrudRepository<User, Long>{
-    
+    Optional<User> findByUsernameOrCorreo(String username, String correo);
+
+
 }

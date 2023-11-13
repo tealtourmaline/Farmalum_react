@@ -49,6 +49,12 @@ export const useUsers = () => {
     const handlerUserSelectedForm = (user) => {
         setUserSelected({ ...user });
     }
+    const handlerAddExternalUser = (user) => {
+        dispatch({
+          type: 'addUser',
+          payload: user,
+        });
+      };
 
     return {
         users,
@@ -57,6 +63,7 @@ export const useUsers = () => {
         handlerAddUser,
         handlerRemoveUser,
         handlerUserSelectedForm,
+        handlerAddExternalUser,
         getUsers,
     }
 }
