@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.farmalum.backend.cartapp.backendcartapp.config.SecurityConfig;
-import com.farmalum.backend.cartapp.backendcartapp.config.SecurityConfig.PasswordEncoder;
 
 
 import com.farmalum.backend.cartapp.backendcartapp.services.UserService;
@@ -24,12 +22,9 @@ import com.farmalum.backend.cartapp.backendcartapp.models.entities.User;
 @RestController
 @RequestMapping("/users")
 public class UserController {
-    
     @Autowired
     private UserService service;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
 
     @GetMapping
@@ -49,8 +44,6 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<?> create(@RequestBody User user){
-        String hashedPassword = passwordEncoder.encode(user.getPassword);
-        user.setPassword(hashedPassword);
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(user));
     }
 
