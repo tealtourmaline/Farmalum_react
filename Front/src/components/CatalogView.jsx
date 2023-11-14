@@ -1,15 +1,15 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { getProducts } from "../services/productService"
+import { getProducts, getLatestProducts, getProductsByCategory } from "../services/productService"
 import { ProductCardView } from "./ProductCardView";
 
-export const CatalogView = ({ handler }) => {
+export const CatalogView = ({ handler, productService }) => {
 
     const [products, setProducts] = useState([]);
 
     const findAll = async () =>{
         try {
-            const prods = await getProducts();
+            const prods = await productService();
             setProducts(prods);
           } catch (error) {
             console.error("Error al obtener productos", error);

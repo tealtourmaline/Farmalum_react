@@ -4,9 +4,11 @@ import RenderNavbar from "./components/Navbar";
 import MyCarousel from "./components/Carousel";
 import RenderCategoriesBar from "./components/CategoriesBar";
 import { getLatestProducts } from "./services/productService"; // Agrega la función getLatestProducts
+import { useCart } from './contexts/CartContext';
 
-export const CatalogApp = ({ handlerAddProductCart }) => {
+export const PrincipalApp = ( ) => {
   const [latestProducts, setLatestProducts] = useState([]);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const fetchLatestProducts = async () => {
@@ -28,7 +30,7 @@ export const CatalogApp = ({ handlerAddProductCart }) => {
       <MyCarousel />
       <div className="container my-5">
         <h3>Productos destacados</h3>
-        <CatalogView handler={handlerAddProductCart} products={latestProducts} />
+        <CatalogView handler={addToCart} productService={getLatestProducts} />
       </div>
     </>
   );

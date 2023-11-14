@@ -22,7 +22,15 @@ export const getLatestProducts = async () => {
   }
 };
 
-
+export const getProductsByCategory = async (category) => {
+  try {
+    const response = await axios.get(`http://localhost:8080/products/${category}`);
+    return response.data;
+  } catch (error) {
+    console.error(`Error al obtener productos de la categoría ${category}`, error);
+    throw error;
+  }
+};
 export const calculateTotal = (items) => {
     return items.reduce(
         (accumulator, item) => accumulator + item.product.price * item.quantity

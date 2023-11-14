@@ -11,7 +11,8 @@ import { AuthProvider } from './contexts/AuthContext';
 import { ProfileApp } from './ProfileApp';
 import { AdminProfileApp } from './AdminProfileApp';
 import { UserProvider } from './contexts/UserContext';
-
+import { PrincipalApp } from './PrincipalApp';
+import { CategoryApp } from './CategoryApp';
 
 const App = () => (
   <Router>
@@ -19,10 +20,12 @@ const App = () => (
       <Route path="/carrito" element={<CartApp/>} />
       <Route path="/registro" element={<UsersApp/>} />
       <Route path="/login" element={<LogInApp/>} />
-      <Route path="/" element={<CatalogApp/>} />
+      <Route path="/" element={<PrincipalApp/>} />
+      <Route path="/home" element={<PrincipalApp/>} />
       <Route path="/all" element={<CatalogApp/>} />
       <Route path="/profile" element={<ProfileApp/>} />
       <Route path="/profile/admin" element={<AdminProfileApp/>} />
+      <Route path="/category/:category" element={<CategoryApp />} />
     </Routes>
   </Router>
 );

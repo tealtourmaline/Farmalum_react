@@ -1,6 +1,10 @@
 import "../styles.css";
+import { useAuth } from '/home/valespinal/Farmalum_react/Front/src/contexts/AuthContext.jsx';  
+import { Link } from 'react-router-dom';
 
 function RenderNavbar() {
+  const { user, logout } = useAuth();
+
 
   const textStyle = {
     fontFamily: 'Roboto, sans-serif', // Establece la fuente como "Roboto" y luego fuentes alternativas
@@ -35,10 +39,26 @@ function RenderNavbar() {
           </form>
 
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/login">Iniciar sesión/Registrarse</a>
-            </li>
-          </ul>
+        <li className="nav-item">
+          {user ? (
+            <Link to="/profile" className="nav-link active" aria-current="page">
+              Mi perfil
+            </Link>
+          ) : (
+            <Link to="/login" className="nav-link active" aria-current="page">
+              Iniciar sesión/Registrarse
+            </Link>
+          )}
+        </li>
+        {user && (
+          <li className="nav-item">
+            <button className="nav-link btn btn-link" onClick={logout}>
+              Cerrar sesión
+            </button>
+          </li>
+        )}
+      </ul>
+
         </div>
         <a className="navbar-brand" href="/carrito">
           <img src="https://i.imgur.com/vzcjjBL.png" alt="Carrito" width="" height="70" class="d-inline-block align-text-center"/> 
