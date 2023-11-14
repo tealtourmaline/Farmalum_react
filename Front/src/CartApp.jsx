@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { CartView } from "./components/CartView";
 import RenderNavbar from "./components/Navbar";
-import RenderCategoriesBar from "./components/CategoriesBar"
-import { CatalogApp } from "./CatalogApp"; 
+import RenderCategoriesBar from "./components/CategoriesBar";
+import RenderTablaPagar from "./components/TablaPagar";
 
 export const CartApp = () => {
     const [cartItems, setCartItems] = useState([]);
@@ -39,11 +39,23 @@ export const CartApp = () => {
 
     return (
         <>
-            <RenderNavbar />
-            <RenderCategoriesBar />
-            <div className="container my-5">
-                <CartView items={cartItems} handlerDelete={handlerDeleteProductCart}/>
-            </div>
+         <RenderNavbar />
+        <RenderCategoriesBar />
+                <div style={{ display: "flex" }}>
+      <div style={{ flex: "1", marginRight: "20px" }}>
+        {/* Carrito de compras */}
+       
+        <div className="container my-5">
+          <CartView items={cartItems} handlerDelete={handlerDeleteProductCart} />
+        </div>
+      </div>
+      <div style={{ flex: "0" }}>
+        {/* Tabla para pagar */}
+        <div className="container my-5">
+          <RenderTablaPagar />
+        </div>
+      </div>
+    </div>
         </>
     );
 }
