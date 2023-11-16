@@ -84,3 +84,111 @@ Conectarse a la base de datos
 
 Seguimos los pasos en [Script de implementacion en postgres](Script_implementacion_BD.sql)
 
+## Endpoints
+
+A continuación se mostrarán los endpoints del backend
+
+http://127.0.0.1:8080/
+
+- Obtener todas las Categorias 
+
+    (GET)
+
+        /categories
+
+- Obtener categoría por id
+
+    (GET)
+
+        /categories/{id}
+
+- Obtener todos los productos
+
+    (GET)
+
+        /products
+
+- Obtener todos los productos por categoría
+
+    (GET)
+
+        /products/{category_name}
+
+- Obtener los ultimos productos añadidos con 1 o mas de stock
+
+    (GET)
+
+        /products/last
+
+- Busqueda de procutos
+
+    (GET)
+
+        /products/search/{name}
+
+- Obtener todos los usuarios
+
+    (GET)
+
+        /users
+
+- Obtener usuario por id
+
+    (GET)
+
+        /users/{id}
+
+- Crear usuario
+
+    (POST)
+
+        /users
+
+        JSON:
+        {
+            "username": "{String}",
+            "password": "{String}",
+            "admin": {boolean},
+            "active": {boolean},
+            "email": "{String}"
+        }
+
+- Actializar usuario
+
+    (PUT)
+
+        /users/{id}
+
+        JSON:
+        {
+            "id": "{Int}",
+            "username": "{String}",
+            "password": "{String}",
+            "admin": {boolean},
+            "active": {boolean},
+            "email": "{String}"
+        }
+
+- Borrar usuario (No lo borra, pasa su estado de activo a inactivo)
+
+    (DELETE)
+
+        /users/{id}
+
+- Ver si un usuario es admin
+
+    (GET)
+
+        /users/isAdmin/{username}
+
+- Verificar login (devuelve un usuario)
+
+    (POST)
+
+        /users/login
+
+        JSON:
+        {
+            "username": "{String}",
+            "password": "{String}",
+        }

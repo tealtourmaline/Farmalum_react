@@ -17,6 +17,8 @@ public class User {
 
     private String username;
     private String password;
+    private boolean admin;
+    private boolean active;
 
     @Column(unique = true)
     private String email;
@@ -51,5 +53,21 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }

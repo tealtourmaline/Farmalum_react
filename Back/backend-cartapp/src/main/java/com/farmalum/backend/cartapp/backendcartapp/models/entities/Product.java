@@ -15,10 +15,26 @@ public class Product {
     private long id;
 
     private String name;
-
     private String photo;
-
     private Long price;
+    private int stock;
+    private int category_id;
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public int getCategory_id() {
+        return category_id;
+    }
+
+    public void setCategory_id(int category_id) {
+        this.category_id = category_id;
+    }
 
     public long getId() {
         return id;
