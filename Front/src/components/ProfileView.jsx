@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getUserDetails, updateUserDetails } from '/home/valespinal/Farmalum_react/Front/src/services/userService.js'; // Ajusta la ruta según la ubicación de tu UserService
+import { getUserDetails, updateall } from '/home/valespinal/Farmalum_react/Front/src/services/userService.js'; // Ajusta la ruta según la ubicación de tu UserService
 import { useAuth } from '/home/valespinal/Farmalum_react/Front/src/contexts/AuthContext.jsx';
 
 const ProfileView = () => {
@@ -45,7 +45,7 @@ const ProfileView = () => {
 
     try {
       // Asegúrate de pasar el ID del usuario a updateUserDetails
-      await updateUserDetails(userId, newDetails.newUsername, newDetails.newEmail, newDetails.newPassword);
+      await updateall(userId, newDetails.newUsername, newDetails.newEmail, newDetails.newPassword);
       alert('Su información ha sido actualizada');
 
     } catch (error) {

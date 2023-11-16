@@ -9,7 +9,7 @@ export const CatalogView = ({ handler, productService }) => {
 
     const findAll = async () =>{
         try {
-            const prods = await productService();
+            const prods = await productService;
             setProducts(prods);
           } catch (error) {
             console.error("Error al obtener productos", error);

@@ -10,28 +10,28 @@ import { CatalogView } from './components/CatalogView';
 export const CategoryApp = () => {
   const { addToCart } = useCart();
   const { category } = useParams();
-  const [products, setProducts] = useState([]);
+  /*
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const productsData = await getProductsByCategory(category);
-        setProducts(productsData);
+        return productsData;
       } catch (error) {
         console.error(`Error al obtener productos de la categoría ${category}`, error);
       }
     };
 
-    fetchProducts();
   }, [category]);
+  */
 
   return (
     <div>
-       <RenderNavbar />
+      <RenderNavbar />
       <RenderCategoriesBar />
       <div className="container my-5">
       <h2>{category}</h2>
-      <CatalogView handler={addToCart} productService={getProductsByCategory} />
+      <CatalogView handler={addToCart} productService={getProductsByCategory(category)} />
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ export const CatalogApp = ( ) => {
             <RenderCategoriesBar />
             <div className="container my-5">
                 <h3>Todos los productos</h3>
-                <CatalogView handler={addToCart} productService={getProducts} />
+                <CatalogView handler={addToCart} productService={getProducts()} />
             </div>
         </>
     );

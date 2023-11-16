@@ -1,6 +1,7 @@
 import React from "react";
 import { LogInForm } from "./components/LogInForm";
 import RenderNavbar from "./components/Navbar";
+import RenderCategoriesBar from "./components/CategoriesBar";
 import { useAuth } from "./contexts/AuthContext";
 import { UserForm } from "./components/UserForm";
 import { AuthProvider } from "./contexts/AuthContext";
@@ -31,6 +32,7 @@ export const LogInApp = () => {
     <AuthProvider>
     <>
       <RenderNavbar />
+      <RenderCategoriesBar />  
       <div className="container my-4">
         
         <div className="row">

@@ -7,9 +7,10 @@ import { getLatestProducts } from "./services/productService"; // Agrega la func
 import { useCart } from './contexts/CartContext';
 
 export const PrincipalApp = ( ) => {
-  const [latestProducts, setLatestProducts] = useState([]);
+ 
   const { addToCart } = useCart();
-
+/*
+  const [latestProducts, setLatestProducts] = useState([]);
   useEffect(() => {
     const fetchLatestProducts = async () => {
       try {
@@ -22,7 +23,7 @@ export const PrincipalApp = ( ) => {
 
     fetchLatestProducts();
   }, []);
-
+*/
   return (
     <>
       <RenderNavbar />
@@ -30,7 +31,7 @@ export const PrincipalApp = ( ) => {
       <MyCarousel />
       <div className="container my-5">
         <h3>Productos destacados</h3>
-        <CatalogView handler={addToCart} productService={getLatestProducts} />
+        <CatalogView handler={addToCart} productService={getLatestProducts()} />
       </div>
     </>
   );

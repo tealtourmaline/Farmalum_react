@@ -14,7 +14,7 @@ export const getProducts = async() => {
 }
 export const getLatestProducts = async () => {
   try {
-    const response = await axios.get('http://localhost:8080/products/latest');
+    const response = await axios.get('http://localhost:8080/products/last');
     return response.data; // Utiliza response.data para obtener los datos
   } catch (error) {
     console.error("Error al obtener los últimos productos", error);
@@ -28,6 +28,15 @@ export const getProductsByCategory = async (category) => {
     return response.data;
   } catch (error) {
     console.error(`Error al obtener productos de la categoría ${category}`, error);
+    throw error;
+  }
+};
+export const searchProductsByName = async (name) => {
+  try {
+    const response = await axios.get(`http://localhost:8080/products/search/${name}`);
+    return response.data;
+  } catch (error) {
+    console.error(`Error al obtener productos con la(s) palabra(s) ${name} `, error);
     throw error;
   }
 };

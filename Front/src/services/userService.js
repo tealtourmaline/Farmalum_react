@@ -37,6 +37,20 @@ export const update = async ({ id, username, email }) => {
     return undefined;
 }
 
+export const updateall = async ({ id, username, email, password }) => {
+  try {
+      return await axios.put(`${BASE_URL}/${id}`, {
+          username,
+          email,
+          password,
+      });
+  } catch (error) {
+      console.error(error);
+  }
+  return undefined;
+}
+
+
 export const remove = async (id) =>{
     try{
         await axios.delete(`${BASE_URL}/${id}`);
@@ -55,18 +69,7 @@ export const getUserDetails = async (id) => {
       throw error; 
     }
   };
-  //actualizar la información de un usuario en especifico
-  export const updateUserDetails = async (id, username, email, password) => {
-    try {
-      const response = await axios.put(`${BASE_URL}/${id}/details`, {
-        username, email, password,
-      });
-      return response.data;
-    } catch (error) {
-      console.error('Error al actualizar detalles del usuario', error);
-      throw error; 
-    }
-}
+
   
 export const login = async (loginData) => {
     try {
