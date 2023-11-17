@@ -13,17 +13,7 @@ import { AuthContext } from './contexts/AuthContext';
 
 
 export const AdminProfileApp = () => {
-  const { user, isAdmin } = useContext(AuthContext);
   
-  const navigate = useNavigate(); 
-  // Si el usuario no está autenticado, se redirige  a la página de inicio de sesión
-  if (!user || !isAdmin) {
-    alert('Debes iniciar sesión cómo administrador para ver esta página.');
-    useEffect(() => {
-    navigate("/login");
-    })
-    return null;
-  }
   const getUsers = async () =>{
     const result = await findAll();
     dispatch({

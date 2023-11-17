@@ -40,6 +40,8 @@ public class UserServiceImpl implements UserService{
                 throw new exception("Ya existe un usuario con el mismo nombre o email");
             }
         }
+
+        user.setActive(true);
         
        return repository.save(user);
     }

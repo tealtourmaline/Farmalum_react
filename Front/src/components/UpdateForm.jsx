@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 export const UpdateForm = ({ userSelected, handlerUpdateUser, initialUserForm }) => {
   const [userForm, setUserForm] = useState(initialUserForm);
+  const { id, username, email, password } = userForm;
 
   useEffect(() => {
     setUserForm({ ...userSelected });
@@ -17,7 +18,7 @@ export const UpdateForm = ({ userSelected, handlerUpdateUser, initialUserForm })
 
   const onSubmit = (event) => {
     event.preventDefault();
-    if (!userForm.username || !userForm.email) {
+    if (!username || !email) {
       alert("Debe completar los campos del formulario");
       return;
     }
@@ -33,16 +34,23 @@ export const UpdateForm = ({ userSelected, handlerUpdateUser, initialUserForm })
         className="form-control my-3 w-75"
         placeholder="Correo"
         name="email"
-        value={userForm.email}
+        value={email}
         onChange={onInputChange}
       />
       <input
         className="form-control my-3 w-75"
         placeholder="Usuario"
         name="username"
-        value={userForm.username}
+        value={username}
         onChange={onInputChange}
       />
+           <input type = "hidden"
+             
+                name="password"
+                value={ password}/>
+       <input type="hidden"
+                name="id"
+                value={id} />
       <button className="btn btn-primary" type="submit">
         Editar
       </button>

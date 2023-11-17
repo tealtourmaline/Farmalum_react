@@ -1,6 +1,6 @@
 import { useReducer, useState } from "react";
 import { usersReducer } from "../reducers/usersReducer";
-import { save, update, remove } from "../services/userService";
+import { save, update, remove, login } from "../services/userService";
 import { findAll } from "../services/userService";
 
 const initialUsers = [];
@@ -10,6 +10,11 @@ const initialUserForm = {
     username: '',
     password: '',
     email: '',
+
+}
+const initialLoginForm = {
+    username: '',
+    password: '',
 
 }
 
@@ -56,15 +61,30 @@ export const useUsers = () => {
             type: 'loadingUsers',
             payload: result.data
         });
+
+    }
+    const loginUser = async (user) => {
+        let result;
+  try {
+    result = await login(user);
+    dispatch({
+      type: 'loginUser',
+      payload: result.data,
+    });
+  } catch (error) {
+    console.error('Error al iniciar sesión:', error);
+  }
     }
     return {
         users,
         userSelected,
         initialUserForm,
+        initialLoginForm,
         handlerAddUser,
         handlerRemoveUser,
         handlerUserSelectedForm,
         handlerAddExternalUser,
         getUsers,
+        loginUser,
     }
 }

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 export const LogInForm = ({ handleLogin, initialLoginForm }) => {
   const [loginForm, setLoginForm] = useState(initialLoginForm);
-  const { usernameOrEmail, password } = loginForm;
+  const { username, password } = loginForm;
   const navigateTo = useNavigate();
 
   const onInputChange = ({ target }) => {
@@ -11,26 +11,19 @@ export const LogInForm = ({ handleLogin, initialLoginForm }) => {
     setLoginForm({
       ...loginForm,
       [name]: value,
-    });
-  };
+    })
+  }
 
   const onSubmit = (event) => {
     event.preventDefault();
-    if (!usernameOrEmail || !password) {
+    if (!username || !password) {
       alert("Debe completar los campos del formulario");
       return;
+      
     }
-
-    // Envía los datos al backend para la validación
-    try {
-      handleLogin(loginForm);
-    }
-    catch(error){
-        alert(error);
-        navigateTo('/')
-    }
-    
+    handleLogin({loginForm});
     setLoginForm(initialLoginForm);
+  
     
   };
 
@@ -38,22 +31,22 @@ export const LogInForm = ({ handleLogin, initialLoginForm }) => {
     <form onSubmit={onSubmit}>
       <input
         className="form-control my-3 w-75"
-        placeholder="Usuario o correo eléctronico"
-        name="usernameOrEmail"
-        value={usernameOrEmail}
-        onChange={onInputChange}
+        placeholder="Usuario "
+        name="username"
+        value={ username }
+        onChange={ onInputChange }
       />
       <input
         className="form-control my-3 w-75"
         placeholder="Contraseña"
         type="password"
         name="password"
-        value={password}
-        onChange={onInputChange}
+        value={ password }
+        onChange={ onInputChange }
       />
       <button className="btn btn-primary" type="submit">
         Iniciar sesión
       </button>
     </form>
-  );
-};
+  )
+}

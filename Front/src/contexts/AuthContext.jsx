@@ -9,9 +9,10 @@ export const AuthProvider = ({ children }) => {
   const [isAdmin, setIsAdmin] = useState(false);
   const navigateTo = useNavigate();
 
-  const login = async (loginData) => {
+  const login = async (user) => {
     try {
-      const result = await apiLogin(loginData);
+      let result;
+      result = await apiLogin(user);
       setUser(result);
       const isAdmin = await isUserAdmin(result.username);
       setIsAdmin(isAdmin);

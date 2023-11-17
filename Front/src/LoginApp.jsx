@@ -9,13 +9,13 @@ import { useUsers } from "./hooks/useUsers";
 export const LogInApp = () => {
     
   const { login } = useContext(AuthContext); 
-  
-  
 
   const {
     userSelected,
     initialUserForm,
+    initialLoginForm,
     handlerAddUser,
+    loginUser,
 } = useUsers();
     
  
@@ -30,11 +30,8 @@ export const LogInApp = () => {
           <div className="col">
           <h5>Iniciar sesión</h5>
             <LogInForm
-              initialLoginForm={{
-                usernameOrEmail: "",
-                password: "",
-              }}
-              handleLogin={login}
+              initialLoginForm={initialLoginForm}
+              handleLogin={loginUser}
             />
           </div>
           

@@ -20,7 +20,7 @@ export const save = async ({username, email, password}) =>{
             password,
         });
     } catch(error){
-        console.error(error);
+        console.error(error.response.data);
     }
     return undefined;
 }
@@ -80,12 +80,12 @@ export const getUserDetails = async (id) => {
     }
   };
   
-export const login = async (loginData) => {
+export const login = async ({username, password}) => {
     try {
-      const response = await axios.post(`${BASE_URL}/login`, loginData);
-      return response.data;
+      return await axios.post(`${BASE_URL}/login`, {username, password,});
+      
     } catch (error) {
-      console.error('Error al iniciar sesión', error);
-      throw error;
+      console.error('Error al iniciar sesión', error.response.data);
+     
     }
   };

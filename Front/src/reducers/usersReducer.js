@@ -22,7 +22,22 @@ export const usersReducer = (state = [], action) => {
             })
         case 'loadingUsers':
             return action.payload;
+        case 'loginUser':
+            return[
+                    ...state,
+                    {
+                        ...action.payload,
+    
+                    }
+    
+                ];
+      case 'loginUser':
+      return {
+        ...state,
+        loggedInUser: action.payload,
+      };
         default:
             return state;
+        
     }
 }
