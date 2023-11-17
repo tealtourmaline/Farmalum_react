@@ -1,14 +1,6 @@
 import { useEffect, useState } from "react";
-import { calculateTotal } from "../services/productService";
 
-export const CartView = ({ handlerDelete, items }) => {
-
-    const [total, setTotal] = useState(0);
-
-    useEffect(() => {
-        setTotal(calculateTotal(items));
-        sessionStorage.setItem("cart", JSON.stringify(items));
-    },[ items ])
+export const CartView = ({ handlerDelete, items, total }) => {
 
     const onDeleteProduct = (id) =>{
         handlerDelete(id);

@@ -69,7 +69,16 @@ export const getUserDetails = async (id) => {
       throw error; 
     }
   };
-
+  export const isUserAdmin = async (username) => {
+    try {
+      const response = await axios.get(`${BASE_URL}/isAdmin/${username}`, {
+      });
+      return response.data;
+    } catch (error) {
+      console.error('Error al obtener detalles del usuario', error);
+      throw error; 
+    }
+  };
   
 export const login = async (loginData) => {
     try {

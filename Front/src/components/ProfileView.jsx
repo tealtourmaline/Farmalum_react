@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getUserDetails, updateall } from '../services/userService'; // Ajusta la ruta según la ubicación de tu UserService
-import { useAuth } from '../contexts/AuthContext';
+import { AuthContext } from '../contexts/AuthContext';  
+import { useContext } from 'react';
 
 const ProfileView = () => {
   const [userDetails, setUserDetails] = useState({});
@@ -12,7 +13,7 @@ const ProfileView = () => {
     newPassword: '',
     confirmCurrentPassword: '',
   });
-  const { userId } = useAuth();
+  const { userId } = useContext(AuthContext);
   const history = useNavigate();
 
   useEffect(() => {

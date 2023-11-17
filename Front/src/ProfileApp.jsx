@@ -2,12 +2,13 @@ import React, { useEffect } from "react";
 import RenderNavbar from "./components/Navbar";
 import RenderCategoriesBar from "./components/CategoriesBar";
 import  ProfileView  from "./components/ProfileView"; //
-import { useAuth } from './contexts/AuthContext.jsx';
+import { AuthContext } from './contexts/AuthContext';  
+import { useContext } from 'react';
 import { useNavigate } from "react-router-dom";
 
 
 export const ProfileApp = () => {
-  const { user } = useAuth();
+  const { user } = useContext(AuthContext);
   
   const navigate = useNavigate(); 
   // Si el usuario no está autenticado, se redirige  a la página de inicio de sesión

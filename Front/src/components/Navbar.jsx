@@ -1,9 +1,12 @@
 import "../styles.css";
-import { useAuth } from '../contexts/AuthContext';  
-import { Link } from 'react-router-dom';
+import { AuthContext } from '../contexts/AuthContext';  
+import { useContext, useState} from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 function RenderNavbar() {
-  const { user, logout } = useAuth();
+  const { user, logout } = useContext(AuthContext);
+  const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
 
 
   const textStyle = {
@@ -13,6 +16,13 @@ function RenderNavbar() {
   const boldTextStyle = {
     fontWeight: 600, // Hace que el texto sea negrita
     color: '#2F2F2F'
+  };
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim() !== '') {
+      // Redirige a la ruta con la palabra escrita por el usuario
+      navigate(`/search/${searchQuery}`);
+    }
   };
 
   return (
@@ -33,8 +43,15 @@ function RenderNavbar() {
               <a className="nav-link active" aria-current="page" href="/">Inicio</a>
             </li>
           </ul>
-          <form className="d-flex mx-auto" role="search">
-            <input className="form-control me-2" type="search" placeholder="Buscar producto" aria-label="Search" />
+          <form className="d-flex mx-auto" onSubmit={handleSearch} role="search">
+            <input
+              className="form-control me-2"
+              type="search"
+              placeholder="Buscar producto"
+              aria-label="Search"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
             <button className="btn btn-outline-success" type="submit">Buscar</button>
           </form>
 

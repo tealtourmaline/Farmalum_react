@@ -20,7 +20,13 @@ export const LogInForm = ({ handleLogin, initialLoginForm }) => {
     }
 
     // Envía los datos al backend para la validación
-    handleLogin(loginForm);
+    try {
+      handleLogin(loginForm);
+    }
+    catch(error){
+        alert(error);
+    }
+    
     setLoginForm(initialLoginForm);
   };
 

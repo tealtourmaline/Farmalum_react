@@ -13,6 +13,7 @@ import { AdminProfileApp } from './AdminProfileApp';
 import { UserProvider } from './contexts/UserContext';
 import { PrincipalApp } from './PrincipalApp';
 import { CategoryApp } from './CategoryApp';
+import { SearchApp } from './SearchApp';
 
 const App = () => (
   <Router>
@@ -26,7 +27,8 @@ const App = () => (
       <Route path="/profile" element={<ProfileApp/>} />
       <Route path="/profile/admin" element={<AdminProfileApp/>} />
       <Route path="/category/:category" element={<CategoryApp />} />
-      <Route path="/users" element={<UsersApp />} />
+      <Route path="/search/:word" element={<SearchApp />} />
+
 
     </Routes>
   </Router>

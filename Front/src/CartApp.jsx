@@ -5,12 +5,18 @@ import RenderCategoriesBar from "./components/CategoriesBar";
 import RenderTablaPagar from "./components/TablaPagar";
 import { CartContext } from './contexts/CartContext';
 import { useContext, useEffect, useState } from 'react'
+import { calculateTotal } from "./services/productService";
 
 
 
 export const CartApp = () => {
     const { cartItems, removeFromCart } = useContext(CartContext); // Usa las funciones del contexto directamente
+    const [total, setTotal] = useState(0);
 
+    useEffect(() => {
+    setTotal(calculateTotal(cartItems));
+    sessionStorage.setItem('cart', JSON.stringify(cartItems));
+    }, [cartItems]);
     return (
        
         <>
@@ -21,13 +27,13 @@ export const CartApp = () => {
                 <div style={{ flex: "1", marginRight: "20px" }}>
                     {/* Carrito de compras */}
                     <div className="container my-5">
-                        <CartView handlerDelete={removeFromCart} items={cartItems}/>
+                        <CartView handlerDelete={removeFromCart} items={cartItems} total={total}/>
                     </div>
                 </div>
                 <div style={{ flex: "0" }}>
                     {/* Tabla para pagar */}
                     <div className="container my-5">
-                        <RenderTablaPagar />
+                        <RenderTablaPagar total = {total}/>
                     </div>
                 </div>
             </div>
@@ -35,139 +41,3 @@ export const CartApp = () => {
        
     );
 }
-/*
-import React, { useState } from "react";
-import { CartView } from "./components/CartView";
-import RenderNavbar from "./components/Navbar";
-import RenderCategoriesBar from "./components/CategoriesBar";
-import RenderTablaPagar from "./components/TablaPagar";
-
-export const CartApp = () => {
-    const [cartItems, setCartItems] = useState([]);
-
-    const handlerAddProductCart = (product) => {
-        const hasItem = cartItems.find((oi) => i.product.id === product.id);
-        if(hasItem){
-            
-            setCartItems(
-                cartItems.map( (i) => {
-                    if(i.product.id === product.id){
-                        i.quantity = i.quantity + 1;
-                    }
-                    return i;
-                })
-            )
-            
-        } else{
-            setCartItems([
-                ...cartItems,
-                {
-                    product,
-                    quantity: 1,
-                }
-            ]);
-        }
-    }
-
-    const handlerDeleteProductCart = (id) => {
-        setCartItems([
-            ...cartItems.filter((i) => i.product.id !== id)
-        ]);
-    }
-
-    return (
-        <>
-         <RenderNavbar />
-        <RenderCategoriesBar />
-                <div style={{ display: "flex" }}>
-      <div style={{ flex: "1", marginRight: "20px" }}>
-        {/* Carrito de compras *//*}
-       
-        <div className="container my-5">
-          <CartView items={cartItems} handlerDelete={handlerDeleteProductCart} />
-        </div>
-      </div>
-      <div style={{ flex: "0" }}>
-        {/* Tabla para pagar *//*}
-        <div className="container my-5">
-          <RenderTablaPagar />
-        </div>
-      </div>
-    </div>
-        </>
-    );
-}
-
-*/
-/*
-import { useState } from "react"
-import { CartView } from "./components/CartView"
-import { CatalogView } from "./components/CatalogView"
-import RenderNavbar from "./components/Navbar"
-import MyCarousel from "./components/Carousel";
-
-const cartData = sessionStorage.getItem('cart');
-const initialCartItems = cartData ? JSON.parse(cartData) : [];
-export const CartApp = () => {
-
-    const [cartItems, setCartItems] = useState(initialCartItems);
-
-    const handlerAddProductCart = (product) => {
-
-        const hasItem = cartItems.find((i) => i.product.id === product.id);
-        if(hasItem){
-            
-            setCartItems(
-                cartItems.map( (i) => {
-                    if(i.product.id === product.id){
-                        i.quantity = i.quantity + 1;
-                    }
-                    return i;
-                })
-            )
-            
-        } else{
-            setCartItems([
-                ...cartItems,
-                {
-                    product,
-                    quantity: 1,
-                }
-            ]);
-        }
-    }
-
-    const handlerDeleteProductCart = (id) => {
-        setCartItems([
-            ...cartItems.filter((i) => i.product.id !== id)
-        ]);
-    }
-
-    return (
-        <>
-            <RenderNavbar />
-            <div className="container-fluid" style={{backgroundColor: "#F8A5B9", height: "2.5rem", margin: "0", display: "flex", justifyContent: "center", alignItems: "center"}} >
-            <span style={{color: '#2F2F2F', fontWeight: '495', padding: '15px'}} >Cosméticos</span>
-            <span style={{color: '#2F2F2F', fontWeight: '495', padding: '15px'}} >Cuidado personal</span>
-            <span style={{color: '#2F2F2F', fontWeight: '495', padding: '15px'}} >Salud y medicamentos</span>
-            <span style={{color: '#2F2F2F', fontWeight: '495', padding: '15px'}} >Maternidad y bebés</span>
-            <span style={{color: '#2F2F2F', fontWeight: '495', padding: '15px'}} >Nutrición</span>
-            <span style={{color: '#2F2F2F', fontWeight: '495', padding: '15px'}} >Todos los productos</span>
-            </div>
-            <MyCarousel/>
-            <div className="container my-5">
-                <h3>Productos destacados</h3>
-                {/* carga la vista del catálogo  *//*}
-                <CatalogView handler={ handlerAddProductCart } />
-
-                { cartItems?.length <= 0 || (
-                <div className="my-4 w-50">
-                    {/* carga la vista del carrito de compras *//*}
-                    <CartView items={cartItems} handlerDelete={handlerDeleteProductCart}/>
-                </div>)}
-            </div>
-            
-        </>
-    )
-}
-*/
