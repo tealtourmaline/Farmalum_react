@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import { login as apiLogin } from '/home/valespinal/Farmalum_react/Front/src/services/userService.js'; // Ajusta la ruta según la ubicación de tu servicio de autenticación
+import { login as apiLogin } from '../services/userService'; // Ajusta la ruta según la ubicación de tu servicio de autenticación
 
 const AuthContext = createContext();
 

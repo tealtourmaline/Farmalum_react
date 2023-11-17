@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import RenderNavbar from "./components/Navbar";
 import RenderCategoriesBar from "./components/CategoriesBar";
 import  ProfileView  from "./components/ProfileView"; //
-import { useAuth } from '/home/valespinal/Farmalum_react/Front/src/contexts/AuthContext.jsx';
+import { useAuth } from './contexts/AuthContext.jsx';
 import { useNavigate } from "react-router-dom";
 
 

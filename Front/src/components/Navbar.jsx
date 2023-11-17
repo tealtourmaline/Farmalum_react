@@ -1,5 +1,5 @@
 import "../styles.css";
-import { useAuth } from '/home/valespinal/Farmalum_react/Front/src/contexts/AuthContext.jsx';  
+import { useAuth } from '../contexts/AuthContext';  
 import { Link } from 'react-router-dom';
 
 function RenderNavbar() {

@@ -1,6 +1,7 @@
 import { useReducer, useState } from "react";
 import { usersReducer } from "../reducers/usersReducer";
 import { save, update, remove } from "../services/userService";
+import { findAll } from "../services/userService";
 
 const initialUsers = [];
 
@@ -16,13 +17,7 @@ export const useUsers = () => {
     const [users, dispatch] = useReducer(usersReducer, initialUsers);
     const [userSelected, setUserSelected] = useState(initialUserForm);
 
-    const getUsers = async () =>{
-        const result = await findAll();
-        dispatch({
-            type: 'loadingUsers',
-            payload: result.data
-        });
-    }
+    
 
     const handlerAddUser = async (user) => {
 
@@ -55,7 +50,13 @@ export const useUsers = () => {
           payload: user,
         });
       };
-
+      const getUsers = async () =>{
+        const result = await findAll();
+        dispatch({
+            type: 'loadingUsers',
+            payload: result.data
+        });
+    }
     return {
         users,
         userSelected,

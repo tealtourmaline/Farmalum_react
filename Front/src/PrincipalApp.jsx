@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
 import { CatalogView } from "./components/CatalogView";
 import RenderNavbar from "./components/Navbar";
 import MyCarousel from "./components/Carousel";
 import RenderCategoriesBar from "./components/CategoriesBar";
 import { getLatestProducts } from "./services/productService"; // Agrega la función getLatestProducts
-import { useCart } from './contexts/CartContext';
+import { CartContext } from './contexts/CartContext';
+import { useContext, useEffect, useState } from 'react'
 
 export const PrincipalApp = ( ) => {
  
-  const { addToCart } = useCart();
+  const {addToCart } = useContext(CartContext);
+  
 /*
   const [latestProducts, setLatestProducts] = useState([]);
   useEffect(() => {

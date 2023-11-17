@@ -26,6 +26,8 @@ const App = () => (
       <Route path="/profile" element={<ProfileApp/>} />
       <Route path="/profile/admin" element={<AdminProfileApp/>} />
       <Route path="/category/:category" element={<CategoryApp />} />
+      <Route path="/users" element={<UsersApp />} />
+
     </Routes>
   </Router>
 );

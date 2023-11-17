@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getUserDetails, updateall } from '/home/valespinal/Farmalum_react/Front/src/services/userService.js'; // Ajusta la ruta según la ubicación de tu UserService
-import { useAuth } from '/home/valespinal/Farmalum_react/Front/src/contexts/AuthContext.jsx';
+import { getUserDetails, updateall } from '../services/userService'; // Ajusta la ruta según la ubicación de tu UserService
+import { useAuth } from '../contexts/AuthContext';
 
 const ProfileView = () => {
   const [userDetails, setUserDetails] = useState({});

@@ -1,8 +1,8 @@
 // UserContext.js
-import { createContext, useContext, useReducer } from 'react';
-import { useUsers } from '/home/valespinal/Farmalum_react/Front/src/hooks/useUsers.js'; 
+import { createContext, useContext, useReducer, useEffect } from 'react';
+import { useUsers } from '../hooks/useUsers'; 
 
-const UserContext = createContext();
+export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const { users, handlerAddUser, handlerRemoveUser, handlerUserSelectedForm, getUsers } = useUsers();
@@ -22,9 +22,22 @@ export const UserProvider = ({ children }) => {
       default:
         return state;
     }
+
   };
+  
+  useEffect(() => {
+    localStorage.setItem("users", JSON.stringify(users));
+  }, [users]);
+  
+  useEffect(() => {
+    const users = localStorage.getItem("users");
+    if (users) {
+      getUsers(JSON.parse(users));
+    }
+  }, []);
 
   const [state, dispatch] = useReducer(userReducer, { users });
+
 
   return (
     <UserContext.Provider value={{ state, dispatch, handlerAddUser, handlerRemoveUser, handlerUserSelectedForm, getUsers }}>
@@ -33,14 +46,3 @@ export const UserProvider = ({ children }) => {
   );
 };
 
-export const useUserContext = () => {
-    const context = useContext(UserContext);
-
-  if (!context) {
-    throw new Error("useUserContext debe ser utilizado dentro de un UserProvider");
-  }
-
-    console.log('Contexto:' , context); 
-
-    return context;
-    };

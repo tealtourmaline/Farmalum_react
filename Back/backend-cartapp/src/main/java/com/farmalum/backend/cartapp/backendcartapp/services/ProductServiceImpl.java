@@ -50,7 +50,7 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public Optional<Product> lastAddedProducts() {
+    public Optional<List<Product>> lastAddedProducts() {
         return ProductRepository.lastAddedProducts();
     }
 }

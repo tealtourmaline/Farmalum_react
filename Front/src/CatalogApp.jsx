@@ -1,19 +1,23 @@
 import React from "react";
+import { useContext, useEffect, useState } from 'react'
+
 import { CatalogView } from "./components/CatalogView";
 import RenderNavbar from "./components/Navbar";
-import MyCarousel from "./components/Carousel";
 import RenderCategoriesBar from "./components/CategoriesBar"
-import { useCart } from './contexts/CartContext';
-import { getProducts, getLatestProducts, getProductsByCategory } from "./services/productService";
+
+import { getProducts, } from "./services/productService";
+import { CartContext } from './contexts/CartContext';
 
 
 
 export const CatalogApp = ( ) => {
-    const { addToCart } = useCart();
+    const {addToCart } = useContext(CartContext);
+
 
 
     
     return (
+        
         <>
             <RenderNavbar />
             <RenderCategoriesBar />
@@ -22,6 +26,7 @@ export const CatalogApp = ( ) => {
                 <CatalogView handler={addToCart} productService={getProducts()} />
             </div>
         </>
+        
     );
 }
 

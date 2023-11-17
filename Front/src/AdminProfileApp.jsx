@@ -1,13 +1,28 @@
 import React from "react";
 import RenderNavbar from "./components/Navbar";
 import { UsersList } from "./components/UsersList";
-import { useUserContext } from "./contexts/UserContext"; 
 import  ProfileView  from "./components/ProfileView"; //
 import RenderCategoriesBar from "./components/CategoriesBar";
+import { useUsers } from "./hooks/useUsers";
+import { findAll } from "./services/userService";
 
 
 export const AdminProfileApp = () => {
-  const { state, dispatch, handlerRemoveUser, handlerUserSelectedForm } = useUserContext(); 
+  const getUsers = async () =>{
+    const result = await findAll();
+    dispatch({
+        type: 'loadingUsers',
+        payload: result.data
+    });
+}
+
+const {
+    users,
+    handlerAddUser,
+    handlerRemoveUser,
+    handlerUserSelectedForm,
+    
+} = useUsers();
 
   return (
     <>
@@ -20,16 +35,11 @@ export const AdminProfileApp = () => {
                 <ProfileView />
             </div>
             <div className="col">
-              {state.users.length === 0 ? (
-                <div className="alert alert-warning">No hay usuarios en sistema</div>
-              ) : (
-                <UsersList
-                  handlerUserSelectedForm={handlerUserSelectedForm}
-                  handlerRemoveUser={handlerRemoveUser}
-                  users={state.users}
-                />
-              )}
-          </div>
+                    <UsersList
+                        handlerUserSelectedForm={handlerUserSelectedForm}
+                        handlerRemoveUser={handlerRemoveUser}/>
+                      
+                </div>
         </div>
       </div>
     </>

@@ -1,3 +1,41 @@
+import React from "react";
+import { CartView } from "./components/CartView";
+import RenderNavbar from "./components/Navbar";
+import RenderCategoriesBar from "./components/CategoriesBar";
+import RenderTablaPagar from "./components/TablaPagar";
+import { CartContext } from './contexts/CartContext';
+import { useContext, useEffect, useState } from 'react'
+
+
+
+export const CartApp = () => {
+    const { cartItems, removeFromCart } = useContext(CartContext); // Usa las funciones del contexto directamente
+
+    return (
+       
+        <>
+        
+            <RenderNavbar />
+            <RenderCategoriesBar />
+            <div style={{ display: "flex" }}>
+                <div style={{ flex: "1", marginRight: "20px" }}>
+                    {/* Carrito de compras */}
+                    <div className="container my-5">
+                        <CartView handlerDelete={removeFromCart} items={cartItems}/>
+                    </div>
+                </div>
+                <div style={{ flex: "0" }}>
+                    {/* Tabla para pagar */}
+                    <div className="container my-5">
+                        <RenderTablaPagar />
+                    </div>
+                </div>
+            </div>
+        </>
+       
+    );
+}
+/*
 import React, { useState } from "react";
 import { CartView } from "./components/CartView";
 import RenderNavbar from "./components/Navbar";
@@ -8,7 +46,7 @@ export const CartApp = () => {
     const [cartItems, setCartItems] = useState([]);
 
     const handlerAddProductCart = (product) => {
-        const hasItem = cartItems.find((i) => i.product.id === product.id);
+        const hasItem = cartItems.find((oi) => i.product.id === product.id);
         if(hasItem){
             
             setCartItems(
@@ -43,14 +81,14 @@ export const CartApp = () => {
         <RenderCategoriesBar />
                 <div style={{ display: "flex" }}>
       <div style={{ flex: "1", marginRight: "20px" }}>
-        {/* Carrito de compras */}
+        {/* Carrito de compras *//*}
        
         <div className="container my-5">
           <CartView items={cartItems} handlerDelete={handlerDeleteProductCart} />
         </div>
       </div>
       <div style={{ flex: "0" }}>
-        {/* Tabla para pagar */}
+        {/* Tabla para pagar *//*}
         <div className="container my-5">
           <RenderTablaPagar />
         </div>
@@ -60,7 +98,7 @@ export const CartApp = () => {
     );
 }
 
-
+*/
 /*
 import { useState } from "react"
 import { CartView } from "./components/CartView"

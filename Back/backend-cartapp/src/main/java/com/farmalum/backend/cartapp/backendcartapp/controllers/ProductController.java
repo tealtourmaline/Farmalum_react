@@ -42,7 +42,7 @@ public class ProductController {
     }
 
     @GetMapping("/products/last")
-    public Optional<Product> lastAddedProducts(){
+    public Optional<List<Product>> lastAddedProducts(){
         return service.lastAddedProducts();
     }
 

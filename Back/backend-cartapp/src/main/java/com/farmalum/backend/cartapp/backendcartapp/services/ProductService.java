@@ -9,5 +9,5 @@ public interface ProductService {
     List<Product> findAll();
     List<Product> findByCategoryName(String category_name);
     Optional<List<Product>> searchByName(String name);
-    Optional<Product> lastAddedProducts();
+    Optional<List<Product>> lastAddedProducts();
 }

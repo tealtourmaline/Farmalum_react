@@ -17,5 +17,5 @@ public interface ProductRepository extends CrudRepository<Product, Long>{
     List<Product> findByCategoryName(@Param("category_name") String category_name);
 
     @Query(value = "select * from products p where p.stock > 0 order by p.id desc limit 10", nativeQuery = true)
-    Optional<Product> lastAddedProducts();
+    Optional<List<Product>> lastAddedProducts();
 }

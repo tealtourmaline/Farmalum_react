@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getProductsByCategory } from './services/productService';  
 import RenderNavbar from "./components/Navbar";
 import RenderCategoriesBar from "./components/CategoriesBar";
-import { useCart } from './contexts/CartContext';
+import { CartContext } from './contexts/CartContext';
 import { CatalogView } from './components/CatalogView';
+import { useContext, useEffect, useState } from 'react'
 
 
 export const CategoryApp = () => {
-  const { addToCart } = useCart();
+  const {addToCart } = useContext(CartContext);
   const { category } = useParams();
   /*
 

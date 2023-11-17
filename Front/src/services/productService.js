@@ -24,7 +24,7 @@ export const getLatestProducts = async () => {
 
 export const getProductsByCategory = async (category) => {
   try {
-    const response = await axios.get(`http://localhost:8080/products/${category}`);
+    const response = await axios.get(`http://localhost:8080/products/category/${category}`);
     return response.data;
   } catch (error) {
     console.error(`Error al obtener productos de la categoría ${category}`, error);

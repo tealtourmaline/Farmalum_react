@@ -5,28 +5,39 @@ import RenderCategoriesBar from "./components/CategoriesBar";
 import { useAuth } from "./contexts/AuthContext";
 import { UserForm } from "./components/UserForm";
 import { AuthProvider } from "./contexts/AuthContext";
-import { useUserContext } from "./contexts/UserContext"; // Ajusta la ruta según tu estructura
+import { useUsers } from "./hooks/useUsers";
 
 export const LogInApp = () => {
-  
-  const { dispatch, handlerAddUser } = useUserContext(); 
-  
+    
   const { login } = useAuth(); 
   const handleLogin = async (loginData) => {
-  const { dispatch, handlerAddUser } = useUserContext(); // Usa el contexto global de usuarios
+ 
 
     try {
       const result = await login(loginData);
       console.log("Inicio de sesión exitoso: ", result);
     } catch (error) {
-      console.error("Error al iniciar sesión: ", error.message);
+      console.error("Error aol iniciar sesión: ", error.message);
       alert("Ha ocurrido un error al iniciar sesión: ", error.message);
     }
   };
+  const getUsers = async () =>{
+    const result = await findAll();
+    dispatch({
+        type: 'loadingUsers',
+        payload: result.data
+    });
+}
+  const {
+    users,
+    userSelected,
+    initialUserForm,
+    handlerAddUser,
+    handlerRemoveUser,
+    handlerUserSelectedForm,
+} = useUsers();
     
-  const handleRegister = (user) => {
-    handlerAddUser(user);
-  };
+ 
 
   return (
     <AuthProvider>
@@ -49,16 +60,10 @@ export const LogInApp = () => {
           
           <div className="col">
           <h5>Registrarse</h5>
-            <UserForm
-              initialUserForm={{
-                id: 0,
-                username: "",
-                password: "",
-                email: "",
-              }}
-              userSelected={null}
-              handlerAddUser={handleRegister}
-            />
+          <UserForm 
+                        initialUserForm={ initialUserForm }
+                        userSelected={userSelected}
+                        handlerAddUser={ handlerAddUser }/>
           </div>
         </div>
       </div>
