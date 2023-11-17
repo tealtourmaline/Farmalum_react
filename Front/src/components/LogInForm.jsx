@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const LogInForm = ({ handleLogin, initialLoginForm }) => {
   const [loginForm, setLoginForm] = useState(initialLoginForm);
   const { usernameOrEmail, password } = loginForm;
+  const navigateTo = useNavigate();
 
   const onInputChange = ({ target }) => {
     const { name, value } = target;
@@ -25,9 +27,11 @@ export const LogInForm = ({ handleLogin, initialLoginForm }) => {
     }
     catch(error){
         alert(error);
+        navigateTo('/')
     }
     
     setLoginForm(initialLoginForm);
+    
   };
 
   return (

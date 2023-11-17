@@ -16,7 +16,6 @@ import { CategoryApp } from './CategoryApp';
 import { SearchApp } from './SearchApp';
 
 const App = () => (
-  <Router>
     <Routes>
       <Route path="/carrito" element={<CartApp/>} />
       <Route path="/registro" element={<UsersApp/>} />
@@ -31,11 +30,12 @@ const App = () => (
 
 
     </Routes>
-  </Router>
+
 );
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+      <Router>
     <UserProvider>
     <AuthProvider>
     <CartProvider>
@@ -43,5 +43,7 @@ createRoot(document.getElementById('root')).render(
     </CartProvider>
     </AuthProvider>
     </UserProvider>
+    </Router>
   </React.StrictMode>
+  
 )
